@@ -13,11 +13,11 @@ api:
   actions:
     - action: water_meter_value
       variables:
-        meter_value: float
+        water_meter: float
       then:
         - globals.set:
             id: totalWaterUsage
-            value: !lambda "return ( meter_value ) ;"
+            value: !lambda "return ( water_meter ) ;"
         - sensor.template.publish:
             id: clack_watermeter
             state: !lambda |-
