@@ -521,7 +521,7 @@ script:
   - id: continue_brine_cycle
     mode: single
     then:
-      - delay: 10s
+      - delay: 20s
       - wait_until:
           condition:
             binary_sensor.is_on: bin_sens_motor_run
@@ -544,7 +544,7 @@ script:
   - id: continue_backwash_cycle
     mode: single
     then:
-      - delay: 10s
+      - delay: 20s
       - wait_until:
           condition:
             binary_sensor.is_on: bin_sens_motor_run
@@ -567,7 +567,7 @@ script:
   - id: continue_backwash2_cycle
     mode: single
     then:
-      - delay: 10s
+      - delay: 20s
       - wait_until:
           condition:
             binary_sensor.is_on: bin_sens_motor_run
@@ -590,7 +590,7 @@ script:
   - id: continue_rinse_cycle
     mode: single
     then:
-      - delay: 10s
+      - delay: 20s
       - wait_until:
           condition:
             binary_sensor.is_on: bin_sens_motor_run
@@ -613,7 +613,7 @@ script:
   - id: continue_fill_cycle
     mode: single
     then:
-      - delay: 10s
+      - delay: 20s
       - wait_until:
           condition:
             binary_sensor.is_on: bin_sens_motor_run
@@ -636,7 +636,7 @@ script:
   - id: continue_service_cycle
     mode: single
     then:
-      - delay: 10s
+      - delay: 20s
       - wait_until:
           condition:
             binary_sensor.is_on: bin_sens_motor_run
@@ -1492,7 +1492,7 @@ text_sensor:
       int64_t operation_time = int(id(clack_save_total_operation_time).state);
       
       if (operation_time <= 0) {
-        ESP_LOGI("main", "Fallback to 'save_total_time_used' since the new 'save_total_operation_time' does not have the operation time set yet: %f", id(save_total_time_used));
+        ESP_LOGI("main", "Fallback to 'save_total_time_used' since the new 'save_total_operation_time' does not have the operation time set yet: %s", id(save_total_time_used).c_str());
         return std::string(id(save_total_time_used));
       }
       

@@ -154,7 +154,7 @@ text_sensor:
     lambda: |-
       time_t datetime = id(saltfill_last);
       if (datetime <= 0) {
-        ESP_LOGI("main", "Fallback to 'fill_last' since the new 'saltfill_last' does not have the salt fill time set yet: %f", id(fill_last));
+        ESP_LOGI("main", "Fallback to 'fill_last' since the new 'saltfill_last' does not have the salt fill time set yet: %s", id(fill_last).c_str());
         return std::string(id(fill_last));
       }
       ${format_datetime_readable}

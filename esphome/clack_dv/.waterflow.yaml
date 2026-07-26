@@ -15,7 +15,7 @@ sensor:
     on_value:
       then:
         - lambda: |-
-            ESP_LOGI("main", "Raw value of 'clack_flow_rate': %f", id(clack_flow_rate).raw_state);
+            ESP_LOGI("main", "Raw value of 'clack_flow_rate': %f", id(clack_flow_rate).get_raw_state());
             ESP_LOGI("main", "Filtered value of 'clack_flow_rate': %f", id(clack_flow_rate).state);
     timeout: 6.5s
     icon: mdi:waves-arrow-right
