@@ -133,7 +133,9 @@ button:
     id: clack_reset_but_last_dist
     on_press:
       then:
-        - component.update: clack_distance_tof
+        - lambda: |-
+            id(last_distance) = id(clack_distance_tof).state;
+        - component.update: clack_distance
         - lambda: |-
             id(saltfill_last) = id(sntp_time).now().timestamp;
         - component.update: clack_saltfill_last

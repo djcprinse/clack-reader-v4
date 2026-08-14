@@ -52,5 +52,8 @@ sensor:
     on_value:
       then:
         - lambda: |-
-            id(last_distance) = float(x);
+            float new_distance = float(x);
+            if (id(last_distance) <= 0.0 || new_distance >= id(last_distance)) {
+              id(last_distance) = new_distance;
+            }
         - component.update: clack_distance
