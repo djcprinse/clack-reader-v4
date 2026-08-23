@@ -743,6 +743,8 @@ binary_sensor:
       } else {
         return false;
       }
+    filters:
+      - delayed_off: 500ms
 
   - platform: template
     name: ${clack_water_flowing}
